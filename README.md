@@ -22,7 +22,8 @@ This Python script is designed to scrape Request for Proposal (RFP) data from tw
 3. Install the required Python libraries by running the following command:
 
 ```bash
-pip install -m requirements.txt```
+pip install -m requirements.txt
+```
 
 ## Customization
 You can customize the script by modifying the keywords, search functions, or output formatting as needed. Be sure to update the email subject and recipients as well. Also, you must change the file tree for the logs to upload to to whatever you've named your root folder.
