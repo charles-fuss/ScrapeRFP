@@ -22,4 +22,16 @@ This Python script is designed to scrape Request for Proposal (RFP) data from tw
 3. Install the required Python libraries by running the following command:
 
 ```bash
-pip install selenium
+pip install -m requirements.txt
+
+## Customization
+You can customize the script by modifying the keywords, search functions, or output formatting as needed. Be sure to update the email subject and recipients as well. Also, you must change the file tree for the logs to upload to to whatever you've named your root folder.
+
+## Disclaimer
+Please note that web scraping may be against the terms of service for some websites. This script is provided for educational purposes only. Use at your own risk and ensure you have permission to access and scrape the websites in question.
+
+## Problems I have yet to address
+
+ - .txt log files are essentially hardcoded to the current searches. Isn't hard to change for new searches, but still works.
+ - The script doesn't omit duplicates from the past search. 
+ - The file tree is custom to my file system. Sorry :(
