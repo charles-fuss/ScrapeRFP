@@ -11,15 +11,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import date, timedelta
 
-# WORKS IN SELENIUM 4.1.2 (my base)
-# RUN FROM RFPS FOLDER
-# Can integrate instantmarkets.com?
-
-# Problems:
-    # .txt log files are essentially hardcoded to the current searches. Isn't hard to change for new searches, but still work.
-    # Doesn't sort duplicates
-
-
 def getScope(messy_RFP_description):
     # old regex
     # service_regex = r"^\[B\] Scope of Service:"
@@ -302,8 +293,8 @@ def utilityBilling():
 def sendHTMLEmail(body, subject):
     # Create the message
     msg = MIMEMultipart()
-    msg['From'] = 'amcs-bot-web@hotmail.com'
-    recepients = ['charles.fuss@amcsgroup.com, nicole.kelly@amcsgroup.com']
+    msg['From'] = GMAIL_MAIN
+    recepients = [f'{MY_EMAIL}', f'{MANAGER_EMAIL}']
     msg['To'] = ", ".join(recepients)
     msg['Subject'] = subject
 
@@ -315,7 +306,7 @@ def sendHTMLEmail(body, subject):
     # Connect to the server and send the email
     server = smtplib.SMTP('smtp.outlook.com', 587)
     server.starttls()
-    server.login("amcs-bot-web@hotmail.com", "syntax21")
+    server.login("GMAIL_MAIN", "MY_PW")
     server.send_message(msg)
     print('HTML Email Sent')
     server.quit()
@@ -347,8 +338,8 @@ def dedupResults(keywords, subject, newData):
                     flag = False
                     counter = 0
             
-
-searchCMMS() # keyword = maintenance management system
-searchUAMS() # keyword = asset management system, asset management software
-searchUCIMS() # keyword = WAMS
-utilityBilling()
+if __name__ == '__main__':
+    searchCMMS() # keyword = maintenance management system
+    searchUAMS() # keyword = asset management system, asset management software
+    searchUCIMS() # keyword = WAMS
+    utilityBilling()
